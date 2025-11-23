@@ -15,6 +15,10 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        
+        buildConfigField("String", "SPOTIFY_CLIENT_ID", "\"${project.properties["SPOTIFY_CLIENT_ID"]}\"")
+        buildConfigField("String", "SPOTIFY_REDIRECT_URI", "\"${project.properties["SPOTIFY_REDIRECT_URI"]}\"")
+
     }
 
     buildTypes {
