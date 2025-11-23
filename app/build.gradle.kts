@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.android)
 }
 
+val spotifyClientId: String = project.findProperty("SPOTIFY_CLIENT_ID") as String
+
 android {
     namespace = "com.example.pruebaspotify"
     compileSdk {
@@ -15,6 +17,9 @@ android {
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
+
+        buildConfigField("String", "SPOTIFY_CLIENT_ID", "\"$spotifyClientId\"")
+        buildConfigField("String", "SPOTIFY_REDIRECT_URI", "\"myapp://callback\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
